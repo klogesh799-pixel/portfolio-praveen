@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Kumar N | HR Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Premium Executive Palette */
+            --bg-main: #f8fafc;
+            --sidebar-bg: #0f172a; /* Deep Navy */
+            --sidebar-text: #e2e8f0;
+            --primary: #0f172a;
+            --accent: #d97706;     /* Muted Gold/Amber */
+            --accent-glow: rgba(217, 119, 6, 0.15);
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --border-light: #e2e8f0;
+            
+            --sidebar-width: 300px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary);
+        }
+
+        /* --- Sidebar --- */
+        aside {
+            width: var(--sidebar-width);
+            background: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem 2rem;
+            z-index: 100;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            padding: 4px;
+            background: transparent;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-role {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        nav ul { list-style: none; }
+        
+        nav li { margin-bottom: 0.8rem; }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        nav a i { width: 25px; font-size: 1.1rem; }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transform: translateX(5px);
+        }
+        
+        nav a.active {
+            border-left: 4px solid var(--accent);
+            border-radius: 4px 8px 8px 4px;
+        }
+
+        .social-links {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
+
+        /* --- Main Content --- */
+        main {
+            margin-left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+            padding: 4rem 6rem;
+            max-width: 1600px;
+        }
+
+        section {
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: -15px;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .btn-group { display: flex; gap: 1rem; }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-family: 'Outfit', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary);
+            border: 2px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: var(--bg-main);
+        }
+
+        /* --- Cards General --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-color: var(--accent-glow);
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            border-left: 3px solid var(--border-light);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item { margin-bottom: 3rem; position: relative; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.6rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 2px var(--border-light);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-title { font-size: 1.25rem; font-weight: 700; }
+        .exp-company { color: var(--accent); font-weight: 600; font-size: 1.1rem; }
+        
+        .exp-date { 
+            background: var(--bg-main); 
+            padding: 5px 12px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .exp-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* --- Skills Categories --- */
+        .skill-category { margin-bottom: 2rem; }
+        .skill-cat-title { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 700;}
+        
+        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        
+        .skill-pill {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-pill:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .skill-pill i { color: var(--accent); }
+        .skill-pill:hover i { color: #fff; }
+
+        /* --- Education & Projects Grid --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- Contact --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            background: var(--primary);
+            color: #fff;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .contact-text h6 { font-size: 0.9rem; color: #94a3b8; margin-bottom: 2px; }
+        .contact-text p, .contact-text a { font-size: 1.1rem; font-weight: 600; color: #fff; text-decoration: none; }
+
+        .contact-form-wrapper { padding: 3rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-main);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.1);
+        }
+
+        /* --- Mobile Toggle --- */
+        .menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            z-index: 200;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            :root { --sidebar-width: 0px; }
+            aside { transform: translateX(-100%); }
+            aside.active { transform: translateX(0); }
+            main { margin-left: 0; width: 100%; padding: 4rem 2rem; }
+            .menu-btn { display: block; }
+            .hero h1 { font-size: 3rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- Print Styles (Clean Resume Print) --- */
+        @media print {
+            aside, .menu-btn, .btn, .contact-form-wrapper { display: none !important; }
+            main { margin: 0; padding: 0; width: 100%; }
+            body { background: white; color: black; }
+            .card { box-shadow: none; border: none; padding: 0; margin-bottom: 2rem; }
+            .hero { min-height: auto; margin-bottom: 2rem; }
+            .hero h1 { font-size: 2.5rem; color: black; -webkit-text-fill-color: black; }
+            a { text-decoration: none; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+
+    <aside id="sidebar">
+        <div class="profile-container">
+            <img src="Profile photo.jpg" alt="Praveen Kumar N" class="profile-img">
+            <h2 class="profile-name">Praveen Kumar N</h2>
+            <span class="profile-role">HR Executive</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#skills"><i class="fas fa-layer-group"></i> Expertise</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#projects"><i class="fas fa-chart-pie"></i> Projects</a></li>
+                <li><a href="#education"><i class="fas fa-user-graduate"></i> Education</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-links">
+            <a href="https://linkedin.com/in/praveen140899" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pk140899@yahoo.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </aside>
+
+    <main>
+        
+        <section id="home" class="hero">
+            <h4>Welcome to my portfolio</h4>
+            <h1>Driven by People,<br>Focused on Results.</h1>
+            <p class="hero-lead">HR Professional & Accountant with expertise in Recruitment, Payroll, Compliance, and Employee Relations. I bridge the gap between organizational goals and employee satisfaction.</p>
+            
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
+                <a href="Resume_Praveen_kumar_N.pdf" download="Praveen_Kumar_Resume.pdf" class="btn btn-secondary">
+    <i class="fas fa-download"></i> Download Resume
+</a>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Core Competencies</h2>
+            
+            <div class="card">
+                <div class="skill-category">
+                    <div class="skill-cat-title">Human Resources</div>
+                    <div class="skills-wrapper">
+                        <div class="skill-pill"><i class="fas fa-search"></i> Recruitment</div>
+                        <div class="skill-pill"><i class="fas fa-users"></i> Employee Relations</div>
+                        <div class="skill-pill"><i class="fas fa-file-contract"></i> HR Documentation</div>
+                        <div class="skill-pill"><i class="fas fa-user-check"></i> Onboarding</div>
+                        <div class="skill-pill"><i class="fas fa-door-open"></i> Exit Formalities</div>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="margin-bottom: 0;">
+                    <div class="skill-cat-title">Finance & Administration</div>
+                    <div class="skills-wrapper">
+                        <div class="skill-pill"><i class="fas fa-money-check-alt"></i> Payroll Inputs</div>
+                        <div class="skill-pill"><i class="fas fa-file-invoice"></i> Billing & Invoicing</div>
+                        <div class="skill-pill"><i class="fas fa-balance-scale"></i> Compliance</div>
+                        <div class="skill-pill"><i class="fas fa-chart-bar"></i> Reporting</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Professional History</h2>
+            
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-title">Human Resources Generalist</h3>
+                                <span class="exp-company">Hinisys Software, Chennai</span>
+                            </div>
+                            <span class="exp-date">Oct 2024 – Nov 2025</span>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Managed end-to-end HR operations including recruitment, attendance, and leave tracking.</li>
+                            <li>Executed full-and-final settlements and ensured statutory HR compliance.</li>
+                            <li>Facilitated performance management reviews and handled sensitive employee relations issues.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-title">Accountant & Billing Specialist</h3>
+                                <span class="exp-company">Prime Tours and Travels, Chennai</span>
+                            </div>
+                            <span class="exp-date">Sep 2022 – Sep 2024</span>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Prepared complex invoices and reconciled payments against outstanding bills.</li>
+                            <li>Generated monthly billing reports and resolved client queries regarding credit notes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item" style="margin-bottom:0;">
+                        <div class="timeline-dot"></div>
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-title">Recruiter</h3>
+                                <span class="exp-company">HirePro (for Accenture), Chennai</span>
+                            </div>
+                            <span class="exp-date">Jun 2017 – Jan 2019</span>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Coordinated large-scale hiring drives for IT roles.</li>
+                            <li>Screened candidates and managed the interview scheduling logistics.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Academic Highlights</h2>
+            <div class="card">
+                <div style="display: flex; align-items: start; gap: 1.5rem;">
+                    <div style="background: var(--accent-glow); padding: 1rem; border-radius: 10px; color: var(--accent); font-size: 1.5rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="exp-title">Study on Employee Morale Post-Amalgamation</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Ashok Leyland | May 2022 – Jun 2022</p>
+                        <p>A comprehensive analysis of workforce morale before and after organizational amalgamation. The study concluded a strong positive correlation between high morale and improved organizational performance metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="grid-2">
+                <div class="card" style="border-left: 5px solid var(--accent);">
+                    <h3>MBA (Finance)</h3>
+                    <p class="exp-company">Anna University of Technology</p>
+                    <p style="color: var(--text-muted);">2020 – 2022</p>
+                </div>
+                <div class="card" style="border-left: 5px solid var(--primary);">
+                    <h3>BCom (Accounting)</h3>
+                    <p class="exp-company">Ramakrishana Mission College</p>
+                    <p style="color: var(--text-muted);">2016 – 2019</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="color: white; margin-bottom: 2rem;">Let's Connect</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
+                        <div class="contact-text">
+                            <h6>Phone</h6>
+                            <a href="tel:+918072457261">+91-8072457261</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h6>Email</h6>
+                            <a href="mailto:pk140899@yahoo.com">pk140899@yahoo.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="contact-text">
+                            <h6>LinkedIn</h6>
+                            <a href="https://linkedin.com/in/praveen140899" target="_blank">View Profile</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h6>Location</h6>
+                            <p>Chennai, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+                    <form action="https://formspree.io/f/movgnqra" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+                    </form>
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const icon = document.querySelector('.menu-btn i');
+            
+            sidebar.classList.toggle('active');
+            
+            if(sidebar.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Active Link Highlighting on Scroll
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll("nav ul li a");
+
+        window.onscroll = () => {
+            var current = "";
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                }
+            });
+        };
+    </script>
+</body>
+</html>
