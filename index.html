@@ -44,7 +44,7 @@
             line-height: 1.6;
             display: flex;
             min-height: 100vh;
-            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5 {
@@ -150,12 +150,17 @@
 
         .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
 
-        /* --- Main Content (Desktop Default) --- */
+        /* --- Main Content --- */
         main {
             margin-left: var(--sidebar-width);
             width: calc(100% - var(--sidebar-width));
             padding: 4rem 6rem;
             max-width: 1600px;
+        }
+
+        /* --- Mobile Header (Hidden on Desktop) --- */
+        .mobile-header {
+            display: none; /* Default hidden */
         }
 
         section {
@@ -391,7 +396,7 @@
         /* --- Contact Section --- */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr; /* Desktop: Side by Side */
+            grid-template-columns: 1fr 1.5fr; 
             gap: 0;
             background: #fff;
             border-radius: 20px;
@@ -456,7 +461,7 @@
 
         /* --- Mobile Toggle Button --- */
         .menu-btn {
-            display: none; /* Hidden on Desktop */
+            display: none; 
             position: fixed;
             top: 20px;
             right: 20px;
@@ -480,47 +485,76 @@
         @media (max-width: 1024px) {
             :root { --sidebar-width: 0px; }
 
-            /* Sidebar hidden by default on mobile */
             aside {
                 transform: translateX(-100%);
                 width: 280px;
                 box-shadow: 5px 0 15px rgba(0,0,0,0.2);
             }
             
-            /* Sidebar active state (slid out) */
             aside.active {
                 transform: translateX(0);
             }
 
-            /* Main content takes full width */
             main {
                 margin-left: 0;
                 width: 100%;
-                padding: 6rem 1.5rem 2rem 1.5rem; /* More top padding for menu button */
+                padding: 2rem 1.5rem;
             }
 
-            /* Show Menu Button */
+            /* --- Show Header on Mobile --- */
+            .mobile-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 3rem;
+                margin-bottom: 2rem;
+                animation: fadeIn 1s ease forwards;
+            }
+            
+            /* Styles for mobile photo */
+            .mobile-header .profile-img {
+                width: 140px;
+                height: 140px;
+                border: 4px solid var(--accent);
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 1rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .mobile-header h2 {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: var(--primary);
+                margin-bottom: 0.2rem;
+            }
+            
+            .mobile-header span {
+                color: var(--accent);
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
             .menu-btn { display: flex; }
 
-            /* Typography Adjustments */
+            .hero { min-height: auto; margin-top: 2rem; text-align: center; }
             .hero h1 { font-size: 2.8rem; }
-            .hero-lead { font-size: 1.1rem; }
+            .hero-lead { font-size: 1.1rem; margin: 0 auto 2.5rem auto; }
             .section-title { font-size: 2rem; }
 
-            /* Stack the Contact Section */
             .contact-grid {
-                grid-template-columns: 1fr; /* Stack vertically */
+                grid-template-columns: 1fr;
             }
             
             .contact-info, .contact-form-wrapper {
                 padding: 2.5rem;
             }
 
-            /* Adjust Cards */
             .card { padding: 1.5rem; }
             .grid-2 { grid-template-columns: 1fr; }
             
-            /* Button Group stacking */
             .btn-group {
                 flex-direction: column;
                 width: 100%;
@@ -562,6 +596,12 @@
 
     <main>
         
+        <div class="mobile-header">
+            <img src="Profile photo.jpg" alt="Praveen Kumar N" class="profile-img">
+            <h2>Praveen Kumar N</h2>
+            <span>HR Executive</span>
+        </div>
+
         <section id="home" class="hero">
             <h4>Welcome to my portfolio</h4>
             <h1>Driven by People,<br>Focused on Results.</h1>
