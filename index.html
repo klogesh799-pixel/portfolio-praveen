@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praveen Kumar N | HR Portfolio</title>
+    <title>Praveen Kumar N | HR Generalist & Analyst</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,780 +13,627 @@
 
     <style>
         :root {
-            /* Premium Executive Palette */
-            --bg-main: #f8fafc;
-            --sidebar-bg: #0f172a;
-            --sidebar-text: #cbd5e1;
-            --primary: #0f172a;
-            --accent: #d97706;
-            --accent-glow: rgba(217, 119, 6, 0.15);
-            --text-dark: #334155;
-            --text-muted: #64748b;
-            --card-bg: #ffffff;
-            --border-light: #e2e8f0;
+            /* --- THEME: EXECUTIVE BLUE & TECH --- */
+            --bg-body: #f8fafc;          /* Clean Light Background */
+            --primary: #0b2341;          /* Deep Navy (Authority) */
+            --highlight: #2563eb;        /* Bright Blue (Trust/Action) */
             
-            --sidebar-width: 280px;
+            --accent-purple: #7c3aed;    /* Analytics/Tech */
+            --accent-yellow: #f59e0b;    /* Highlights */
+            --accent-green: #10b981;     /* Compliance */
+            --accent-orange: #f97316;    /* Recruitment */
+            
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            
+            --border: #e2e8f0;
+            --shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-dark);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
-            display: flex;
-            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--primary);
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: var(--primary); }
+
+        /* --- HEADER (TOP NAVIGATION) --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px); z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        /* --- Sidebar (Desktop Default) --- */
-        aside {
-            width: var(--sidebar-width);
-            background: var(--sidebar-bg);
-            color: var(--sidebar-text);
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            padding: 2.5rem 2rem;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.4rem;
+            color: var(--primary); text-decoration: none;
+        }
+        .logo-img {
+            width: 42px; height: 42px; border-radius: 50%;
+            object-fit: cover; border: 2px solid var(--highlight);
         }
 
-        .profile-container {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent);
-            padding: 4px;
-            background: transparent;
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
-        }
-
-        .profile-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .profile-role {
-            font-size: 0.85rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            display: block;
-            margin-top: 5px;
-        }
-
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 0.5rem; }
-
-        nav a {
-            display: flex;
-            align-items: center;
-            color: #94a3b8;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 12px 16px;
-            border-radius: 8px;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        nav a i { width: 25px; font-size: 1.1rem; text-align: center; margin-right: 10px; }
-
-        nav a:hover, nav a.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            transform: translateX(5px);
-        }
-        
-        nav a.active {
-            border-left: 4px solid var(--accent);
-            border-radius: 4px 8px 8px 4px;
-        }
-
-        .social-links {
-            margin-top: auto;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: #94a3b8;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
-
-        /* --- Main Content --- */
-        main {
-            margin-left: var(--sidebar-width);
-            width: calc(100% - var(--sidebar-width));
-            padding: 4rem 6rem;
-            max-width: 1600px;
-        }
-
-        /* --- Mobile Header (Hidden on Desktop) --- */
-        .mobile-header {
-            display: none; /* Default hidden */
-        }
-
-        section {
-            margin-bottom: 6rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-            font-weight: 700;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            right: -15px;
-            width: 50px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* --- Hero --- */
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero h4 {
-            font-size: 1.1rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .hero-lead {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-        }
-
-        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            font-family: 'Outfit', sans-serif;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.4);
-        }
-
-        .btn-secondary {
-            background: #fff;
-            color: var(--primary);
-            border: 2px solid var(--border-light);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            background: var(--bg-main);
-            color: var(--primary);
-        }
-
-        /* --- Card Styles --- */
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2.5rem;
+        /* Desktop Menu */
+        .nav-links {
+            display: flex; gap: 2rem; list-style: none;
+            background: white; padding: 0.6rem 2rem;
+            border-radius: 50px; border: 1px solid var(--border);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-light);
+        }
+        .nav-links a {
+            text-decoration: none; color: var(--text-light);
+            font-weight: 500; font-size: 0.95rem; transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--highlight); }
+
+        .cta-btn {
+            background: var(--primary); color: white;
+            padding: 0.7rem 1.8rem; border-radius: 50px;
+            text-decoration: none; font-weight: 600; transition: var(--transition);
+        }
+        .cta-btn:hover { background: var(--highlight); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37,99,235,0.3); }
+        
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        /* --- MAIN LAYOUT --- */
+        main { padding: 9rem 5% 4rem 5%; max-width: 1400px; margin: 0 auto; }
+        section { margin-bottom: 8rem; scroll-margin-top: 120px; }
+        
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 0.8rem; }
+        .section-header p { color: var(--text-light); font-size: 1.1rem; }
+        .section-header span { 
+            color: var(--highlight); font-weight: 700; 
+            text-transform: uppercase; letter-spacing: 1.2px; font-size: 0.85rem; 
+            display: block; margin-bottom: 0.5rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            display: grid; grid-template-columns: 1.1fr 0.9fr; 
+            align-items: center; gap: 4rem; margin-bottom: 6rem;
+        }
+        
+        .hero-text .badge {
+            background: #dbeafe; color: var(--highlight);
+            padding: 8px 16px; border-radius: 30px;
+            font-weight: 600; font-size: 0.9rem;
+            display: inline-block; margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.15; margin-bottom: 1.5rem; }
+        .hero-text h1 span { 
+            background: linear-gradient(90deg, var(--primary) 0%, var(--highlight) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-text p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 2.5rem; max-width: 90%; }
+        
+        .hero-img-container { position: relative; display: flex; justify-content: center; }
+        .hero-img {
+            width: 100%; max-width: 420px; aspect-ratio: 1/1;
+            object-fit: cover; border-radius: 2rem;
+            box-shadow: 25px 25px 0px var(--highlight); /* The Blue Frame Effect */
+            border: 1px solid var(--border); background: white; padding: 12px;
+        }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 1rem; }
+        .btn { padding: 1rem 2.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: var(--transition); border: none; cursor: pointer; font-size: 1rem;}
+        .btn-primary { background: var(--highlight); color: white; box-shadow: 0 5px 15px rgba(37,99,235,0.25); }
+        .btn-primary:hover { transform: translateY(-3px); background: #1d4ed8; }
+        .btn-outline { background: transparent; border: 2px solid var(--border); color: var(--primary); }
+        .btn-outline:hover { border-color: var(--primary); background: white; }
+
+        /* --- MILESTONES (Grid of 4) --- */
+        .milestones-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 1.5rem; margin-bottom: 6rem; 
+        }
+        .milestone-card { 
+            padding: 2.5rem 1.5rem; border-radius: 16px; color: white; 
+            text-align: center; transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .milestone-card:hover { transform: translateY(-5px); }
+        .m-number { font-size: 2.5rem; font-weight: 800; display: block; font-family: 'Outfit'; margin-bottom: 5px; }
+        .m-label { text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; opacity: 0.95; font-weight: 600; }
+        
+        /* Gradients */
+        .bg-orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .bg-red { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .bg-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .bg-green { background: linear-gradient(135deg, #10b981, #059669); }
+
+        /* --- EXPERIENCE TIMELINE (Enhanced) --- */
+        .journey-grid { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
+        
+        .journey-card {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
             transition: var(--transition);
         }
+        .journey-card:hover { border-color: var(--highlight); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); transform: translateY(-3px); }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08);
-            border-color: var(--accent-glow);
+        .j-header {
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
         }
-
-        /* --- Timeline --- */
-        .timeline {
-            border-left: 3px solid var(--border-light);
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .timeline-item { margin-bottom: 3rem; position: relative; }
-        .timeline-item:last-child { margin-bottom: 0; }
-
-        .timeline-dot {
-            position: absolute;
-            left: -2.6rem;
-            top: 0.5rem;
-            width: 1rem;
-            height: 1rem;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 0 0 2px var(--border-light);
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .exp-title { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
-        .exp-company { color: var(--accent); font-weight: 600; font-size: 1.1rem; display: block; margin-top: 4px;}
+        .j-company-info { display: flex; gap: 1.2rem; align-items: center; }
         
-        .exp-date { 
-            background: var(--bg-main); 
-            padding: 6px 14px; 
-            border-radius: 20px; 
-            font-size: 0.85rem; 
-            font-weight: 600;
-            color: var(--text-muted);
-            border: 1px solid var(--border-light);
-        }
-
-        .exp-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .exp-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-dark);
-        }
-
-        .exp-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 800;
-        }
-
-        /* --- Skills --- */
-        .skill-category { margin-bottom: 2rem; }
-        .skill-cat-title { 
-            font-size: 0.9rem; 
-            margin-bottom: 1rem; 
-            color: var(--text-muted); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            font-weight: 700;
-            border-bottom: 1px solid var(--border-light);
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-        
-        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-        
-        .skill-pill {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            padding: 0.7rem 1.4rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--primary);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-pill:hover {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .skill-pill i { color: var(--accent); }
-        .skill-pill:hover i { color: #fff; }
-
-        /* --- Grids --- */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        /* --- Contact Section --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr; 
-            gap: 0;
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
-        }
-
-        .contact-info {
-            background: var(--primary);
-            color: #fff;
-            padding: 3.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .contact-icon-box {
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            font-size: 1.2rem;
-            color: var(--accent);
+        /* Logo Placeholders */
+        .j-logo {
+            width: 55px; height: 55px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 800; color: white;
             flex-shrink: 0;
         }
+        .logo-h { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+        .logo-p { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .logo-a { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
 
-        .contact-text h6 { font-size: 0.85rem; color: #94a3b8; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;}
-        .contact-text p, .contact-text a { font-size: 1.1rem; font-weight: 600; color: #fff; text-decoration: none; }
-        .contact-text a:hover { color: var(--accent); }
+        .j-titles h3 { font-size: 1.3rem; margin-bottom: 2px; }
+        .j-titles span { color: var(--highlight); font-weight: 600; font-size: 0.95rem; }
+        .j-date-badge {
+            background: #f1f5f9; color: var(--text-main); font-weight: 600;
+            padding: 6px 14px; border-radius: 30px; font-size: 0.85rem; border: 1px solid var(--border);
+        }
 
-        .contact-form-wrapper { padding: 3.5rem; background: #fff; }
+        /* Checkmark List */
+        .check-list { list-style: none; display: grid; gap: 0.8rem; }
+        .check-list li { position: relative; padding-left: 2rem; color: var(--text-light); font-size: 1rem; line-height: 1.6; }
+        .check-list li::before {
+            content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900;
+            position: absolute; left: 0; top: 4px;
+            color: var(--highlight); background: #eff6ff;
+            width: 20px; height: 20px; border-radius: 50%; font-size: 0.7rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .check-list strong { color: var(--primary); font-weight: 600; }
 
-        .form-group { margin-bottom: 1.5rem; }
+        /* --- SKILLS (Checkmark Cards - No Years) --- */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         
-        input, textarea {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--bg-main);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+        .skill-box { 
+            background: white; padding: 2.5rem; border-radius: 20px; 
+            border: 1px solid var(--border); transition: var(--transition); 
+        }
+        .skill-box:hover { border-color: var(--highlight); box-shadow: var(--shadow); transform: translateY(-5px); }
+        
+        .sb-header { margin-bottom: 1.5rem; }
+        .sb-icon { 
+            width: 55px; height: 55px; background: #eff6ff; color: var(--highlight); 
+            border-radius: 14px; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.6rem; margin-bottom: 1rem;
+        }
+        .sb-header h3 { font-size: 1.3rem; margin: 0; }
+
+        .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+        .skill-list li { 
+            display: flex; align-items: center; gap: 12px;
+            color: var(--text-main); font-size: 1rem; font-weight: 500;
+        }
+        .skill-list li i { color: var(--highlight); font-size: 1.1rem; flex-shrink: 0; }
+
+        /* --- PROJECTS --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+        .project-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            border: 1px solid var(--border); transition: var(--transition);
+            display: flex; flex-direction: column;
+        }
+        .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .p-content { padding: 2.5rem; flex: 1; display: flex; flex-direction: column; }
+        .p-tag {
+            background: #ede9fe; color: var(--accent-purple); font-weight: 600;
+            font-size: 0.8rem; padding: 6px 12px; border-radius: 8px;
+            display: inline-block; width: fit-content; margin-bottom: 1rem;
+        }
+        .p-title { font-size: 1.4rem; margin-bottom: 0.5rem; line-height: 1.3; }
+        .p-company { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; display: block; }
+        .p-desc { color: var(--text-light); font-size: 1rem; margin-bottom: 2rem; flex: 1; }
+        .p-footer {
+            border-top: 1px solid var(--border); padding-top: 1.5rem;
+            display: flex; align-items: center; gap: 10px; color: var(--primary); font-weight: 600;
+        }
+
+        /* --- EDUCATION (ENHANCED) --- */
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .edu-card {
+            background: white; padding: 2.5rem; border-radius: 16px;
+            border: 1px solid var(--border); text-align: center;
             transition: var(--transition);
         }
-
-        input:focus, textarea:focus {
-            outline: none;
-            background: #fff;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.1);
+        .edu-card:hover { border-color: var(--accent-yellow); box-shadow: var(--shadow); }
+        .edu-icon {
+            width: 70px; height: 70px; margin: 0 auto 1.5rem auto;
+            background: #fffbeb; color: var(--accent-yellow);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+        }
+        .edu-degree { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+        .edu-uni { color: var(--text-main); font-weight: 500; margin-bottom: 0.5rem; display: block; }
+        .edu-year { 
+            display: inline-block; background: var(--bg-body); 
+            padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; color: var(--text-light); font-weight: 600;
         }
 
-        /* --- Mobile Toggle Button --- */
-        .menu-btn {
-            display: none; 
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            z-index: 2000;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            font-size: 1.2rem;
-            align-items: center;
-            justify-content: center;
+        /* --- CONTACT --- */
+        .contact-box { 
+            background: white; border-radius: 24px; box-shadow: var(--shadow); 
+            display: grid; grid-template-columns: 1fr 1.5fr; overflow: hidden; border: 1px solid var(--border);
         }
+        .contact-left { 
+            background: var(--primary); color: white; padding: 4rem; 
+            display: flex; flex-direction: column; justify-content: center; 
+        }
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+        .c-icon { 
+            width: 45px; height: 45px; background: rgba(255,255,255,0.1); 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 10px; color: var(--accent-yellow); font-size: 1.2rem;
+        }
+        .contact-right { padding: 4rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-main); }
+        input, textarea { 
+            width: 100%; padding: 1.1rem; background: #f8fafc; 
+            border: 1px solid var(--border); border-radius: 10px; 
+            font-family: 'Inter'; transition: 0.3s; font-size: 1rem;
+        }
+        input:focus, textarea:focus { border-color: var(--highlight); outline: none; background: white; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
 
-        /* =========================================
-           RESPONSIVE DESIGN (Mobile & Tablet)
-           ========================================= */
-        @media (max-width: 1024px) {
-            :root { --sidebar-width: 0px; }
-
-            aside {
-                transform: translateX(-100%);
-                width: 280px;
-                box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .nav-links { 
+                display: none; position: absolute; top: 80px; left: 0; width: 100%; 
+                flex-direction: column; padding: 2rem; text-align: center; 
+                background: white; border-bottom: 1px solid var(--border); 
             }
+            .nav-links.active { display: flex; }
+            .cta-btn { display: none; }
+            .menu-toggle { display: block; }
             
-            aside.active {
-                transform: translateX(0);
-            }
-
-            main {
-                margin-left: 0;
-                width: 100%;
-                padding: 2rem 1.5rem;
-            }
-
-            /* --- Show Header on Mobile --- */
-            .mobile-header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                margin-top: 3rem;
-                margin-bottom: 2rem;
-                animation: fadeIn 1s ease forwards;
-            }
+            .hero-section { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-img { max-width: 320px; margin: 0 auto; box-shadow: 15px 15px 0px var(--highlight); }
+            .hero-text h1 { font-size: 2.8rem; }
+            .btn-group { justify-content: center; }
             
-            /* Styles for mobile photo */
-            .mobile-header .profile-img {
-                width: 140px;
-                height: 140px;
-                border: 4px solid var(--accent);
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 1rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            
-            .mobile-header h2 {
-                font-size: 1.8rem;
-                font-weight: 800;
-                color: var(--primary);
-                margin-bottom: 0.2rem;
-            }
-            
-            .mobile-header span {
-                color: var(--accent);
-                font-weight: 600;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-            }
-
-            .menu-btn { display: flex; }
-
-            .hero { min-height: auto; margin-top: 2rem; text-align: center; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero-lead { font-size: 1.1rem; margin: 0 auto 2.5rem auto; }
-            .section-title { font-size: 2rem; }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info, .contact-form-wrapper {
-                padding: 2.5rem;
-            }
-
-            .card { padding: 1.5rem; }
-            .grid-2 { grid-template-columns: 1fr; }
-            
-            .btn-group {
-                flex-direction: column;
-                width: 100%;
-            }
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+            .contact-box { grid-template-columns: 1fr; }
+            .contact-left, .contact-right { padding: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
-
-    <aside id="sidebar">
-        <div class="profile-container">
-            <img src="Profile photo.jpg" alt="Praveen Kumar N" class="profile-img">
-            <h2 class="profile-name">Praveen Kumar N</h2>
-            <span class="profile-role">HR Generalist</span>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#skills"><i class="fas fa-layer-group"></i> Expertise</a></li>
-                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#projects"><i class="fas fa-chart-pie"></i> Projects</a></li>
-                <li><a href="#education"><i class="fas fa-user-graduate"></i> Education</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="social-links">
-            <a href="https://linkedin.com/in/praveen140899" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:pk140899@yahoo.com"><i class="fas fa-envelope"></i></a>
-        </div>
-    </aside>
+    <header>
+        <a href="#" class="logo">
+            <img src="profile.jpg" alt="Profile" class="logo-img">
+            Praveen Kumar N
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="cta-btn">Let's Talk</a>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </header>
 
     <main>
         
-        <div class="mobile-header">
-            <img src="Profile photo.jpg" alt="Praveen Kumar N" class="profile-img">
-            <h2>Praveen Kumar N</h2>
-            <span>HR Generalist</span>
+        <section class="hero-section" id="about">
+            <div class="hero-text">
+                <span class="badge">HR Generalist & Data Analyst</span>
+                <h1>Bridging Operations & <br><span>Strategic Analytics</span></h1>
+                
+                <p>Result-driven HR Professional with <strong>nearly 3 years</strong> of experience in Recruitment, Payroll, and Statutory Compliance. <strong>Proficient</strong> in using Power BI, Zoho People, and Excel to transform HR data into actionable business decisions.</p>
+                
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View Portfolio <i class="fas fa-arrow-down"></i></a>
+                    <a href="resume.pdf" download="Praveen_Kumar_Resume.pdf" class="btn btn-outline"><i class="fas fa-download"></i> Get Resume</a>
+                </div>
+            </div>
+            
+            <div class="hero-img-container">
+                <img src="profile.jpg" alt="Praveen Kumar N" class="hero-img">
+            </div>
+        </section>
+
+        <div class="milestones-grid">
+            <div class="milestone-card bg-orange">
+                <span class="m-number">2.5+</span>
+                <span class="m-label">Years Experience</span>
+            </div>
+
+            <div class="milestone-card bg-red">
+                <span class="m-number">500+</span>
+                <span class="m-label">Profiles Screened</span>
+            </div>
+
+            <div class="milestone-card bg-purple">
+                <span class="m-number">Power BI</span>
+                <span class="m-label">HR Dashboards</span>
+            </div>
+
+            <div class="milestone-card bg-green">
+                <span class="m-number">100%</span>
+                <span class="m-label">Statutory Compliance</span>
+            </div>
         </div>
 
-        <section id="home" class="hero">
-            <h4>Welcome to my portfolio</h4>
-            <h1>Driven by People,<br>Focused on Results.</h1>
-            <p class="hero-lead">HR Professional & Accountant with expertise in Recruitment, Payroll, Compliance, and Employee Relations. I bridge the gap between organizational goals and employee satisfaction.</p>
-            
-            <div class="btn-group">
-                <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
-                <a href="Praveen_3+ yrs_HR Generalist_MBA_ Immediate Joiner.pdf" download="Praveen_3+ yrs_HR Generalist_MBA_ Immediate Joiner.pdf" class="btn btn-secondary">
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
+        <section id="experience">
+            <div class="section-header">
+                <span>Work History</span>
+                <h2>Professional Journey</h2>
+                <p>A track record of managing people, payroll, and compliance with precision.</p>
+            </div>
+
+            <div class="journey-grid">
+                
+                <div class="journey-card">
+                    <div class="j-header">
+                        <div class="j-company-info">
+                            <div class="j-logo logo-h">H</div>
+                            <div class="j-titles">
+                                <h3>HR Generalist</h3>
+                                <span>Hinisys Software | Chennai</span>
+                            </div>
+                        </div>
+                        <div class="j-date-badge">Oct 2024 - Nov 2025</div>
+                    </div>
+                    <ul class="check-list">
+                        <li>
+                            <strong>End-to-End Recruitment:</strong> Managed the full talent acquisition lifecycle for IT roles, reducing time-to-hire by <strong>20%</strong> through effective sourcing strategies.
+                        </li>
+                        <li>
+                            <strong>Payroll & Compliance:</strong> Processed monthly payroll inputs, attendance, and leave regularization for employees with <strong>100% accuracy</strong>. Ensured adherence to PF/ESI statutory norms.
+                        </li>
+                        <li>
+                            <strong>Employee Lifecycle:</strong> Handled onboarding documentation, background verification, grievance handling, and smooth <strong>Exit Formalities</strong> (FnF settlements).
+                        </li>
+                        <li>
+                            <strong>HR Operations:</strong> Maintained digital employee records and supported performance management reviews using <strong>Excel & HRIS tools</strong>.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="journey-card">
+                    <div class="j-header">
+                        <div class="j-company-info">
+                            <div class="j-logo logo-p">P</div>
+                            <div class="j-titles">
+                                <h3>Accountant & Billing Specialist</h3>
+                                <span>Prime Tours and Travels | Chennai</span>
+                            </div>
+                        </div>
+                        <div class="j-date-badge">Sep 2022 - Sep 2024</div>
+                    </div>
+                    <ul class="check-list">
+                        <li>
+                            <strong>Invoicing & Billing:</strong> Managed complex billing cycles for corporate clients, ensuring timely invoice generation and dispatch.
+                        </li>
+                        <li>
+                            <strong>Reconciliation:</strong> Conducted payment reconciliations and tracked outstanding bills to improve <strong>Cash Flow</strong>.
+                        </li>
+                        <li>
+                            <strong>Client Relations:</strong> Resolved client billing queries and credit note adjustments within <strong>24 hours</strong>, maintaining high client satisfaction.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="journey-card">
+                    <div class="j-header">
+                        <div class="j-company-info">
+                            <div class="j-logo logo-a">H</div>
+                            <div class="j-titles">
+                                <h3>Recruitment Associate</h3>
+                                <span>HirePro (Client: Accenture) | Chennai</span>
+                            </div>
+                        </div>
+                        <div class="j-date-badge">Jun 2017 - Jan 2019</div>
+                    </div>
+                    <ul class="check-list">
+                        <li>
+                            <strong>Campus Hiring:</strong> Coordinated large-scale campus recruitment drives for <strong>Accenture</strong>, managing logistics and candidate flow.
+                        </li>
+                        <li>
+                            <strong>High-Volume Screening:</strong> Screened <strong>1000+ profiles</strong>, conducted initial telephonic rounds, and shortlisted candidates for technical panels.
+                        </li>
+                        <li>
+                            <strong>Process Coordination:</strong> Scheduled interviews, managed candidate databases in <strong>ATS</strong>, and ensured a seamless candidate experience during drives.
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
         <section id="skills">
-            <h2 class="section-title">Core Competencies</h2>
-            
-            <div class="card">
-                <div class="skill-category">
-                    <div class="skill-cat-title">Human Resources</div>
-                    <div class="skills-wrapper">
-                        <div class="skill-pill"><i class="fas fa-search"></i> Recruitment</div>
-                        <div class="skill-pill"><i class="fas fa-user-tie"></i> Talent Acquisition & Recruitment</div>
-<div class="skill-pill"><i class="fas fa-chart-bar"></i> Power BI</div>
-<div class="skill-pill"><i class="fas fa-database"></i> HRMS / HRIS System Management</div>
-<div class="skill-pill"><i class="fas fa-file-alt"></i> HR Operations & Documentation</div>
-<div class="skill-pill"><i class="fas fa-handshake"></i> Employee Relations & Grievance Handling</div>
-<div class="skill-pill"><i class="fas fa-user-plus"></i> Onboarding & Exit Management</div>
-<div class="skill-pill"><i class="fas fa-money-check-alt"></i> Payroll, Attendance & Leave Coordination</div>
-<div class="skill-pill"><i class="fas fa-tasks"></i> Performance Management Support</div>
-<div class="skill-pill"><i class="fas fa-table"></i> MIS Reporting</div>
-<div class="skill-pill"><i class="fas fa-comments"></i> Communication & Problem-Solving Skill</div>
-
-                    </div>
-                </div>
-
-                <div class="skill-category" style="margin-bottom: 0;">
-                    <div class="skill-cat-title">Finance & Administration</div>
-                    <div class="skills-wrapper">
-                        <div class="skill-pill"><i class="fas fa-money-check-alt"></i> Payroll Inputs</div>
-                        <div class="skill-pill"><i class="fas fa-file-invoice"></i> Billing & Invoicing</div>
-                        <div class="skill-pill"><i class="fas fa-balance-scale"></i> Compliance</div>
-                        <div class="skill-pill"><i class="fas fa-chart-bar"></i> Reporting</div>
-                    </div>
-                </div>
+            <div class="section-header">
+                <span>My Toolbox</span>
+                <h2>Technical Skills & Competencies</h2>
+                <p>Leveraging a comprehensive HR & Tech stack to drive efficiency</p>
             </div>
-        </section>
 
-        <section id="experience">
-            <h2 class="section-title">Professional History</h2>
-            
-            <div class="card">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-title">Human Resources Generalist</h3>
-                                <span class="exp-company">Hinisys Software, Chennai</span>
-                            </div>
-                            <span class="exp-date">Oct 2024 – Nov 2025</span>
-                        </div>
-                        <ul class="exp-list">
-                            <li>Managed end-to-end HR operations including recruitment, attendance, and leave tracking.</li>
-                            <li>Executed full-and-final settlements and ensured statutory HR compliance.</li>
-                            <li>Facilitated performance management reviews and handled sensitive employee relations issues.</li>
-                        </ul>
+            <div class="skills-container">
+                
+                <div class="skill-box">
+                    <div class="sb-header">
+                        <div class="sb-icon"><i class="fas fa-users-cog"></i></div>
+                        <h3>Core Competencies</h3>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-title">Accountant & Billing Specialist</h3>
-                                <span class="exp-company">Prime Tours and Travels, Chennai</span>
-                            </div>
-                            <span class="exp-date">Sep 2022 – Sep 2024</span>
-                        </div>
-                        <ul class="exp-list">
-                            <li>Prepared complex invoices and reconciled payments against outstanding bills.</li>
-                            <li>Generated monthly billing reports and resolved client queries regarding credit notes.</li>
-                        </ul>
-                    </div>
-
-                    <div class="timeline-item" style="margin-bottom:0;">
-                        <div class="timeline-dot"></div>
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-title">Recruiter</h3>
-                                <span class="exp-company">HirePro (for Accenture), Chennai</span>
-                            </div>
-                            <span class="exp-date">Jun 2017 – Jan 2019</span>
-                        </div>
-                        <ul class="exp-list">
-                            <li>Coordinated large-scale hiring drives for IT roles.</li>
-                            <li>Screened candidates and managed the interview scheduling logistics.</li>
-                        </ul>
-                    </div>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Talent Acquisition & Recruitment</li>
+                        <li><i class="fas fa-check-circle"></i> Employee Relations & Grievance Handling</li>
+                        <li><i class="fas fa-check-circle"></i> Payroll, Attendance & Leave Coordination</li>
+                        <li><i class="fas fa-check-circle"></i> Onboarding & Exit Management</li>
+                        <li><i class="fas fa-check-circle"></i> Statutory Compliance Support</li>
+                    </ul>
                 </div>
+
+                <div class="skill-box">
+                    <div class="sb-header">
+                        <div class="sb-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>CRM / HR Systems</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Odoo (CRM, Recruitment, Payroll)</li>
+                        <li><i class="fas fa-check-circle"></i> Odoo (Attendance, Sales)</li>
+                        <li><i class="fas fa-check-circle"></i> Zoho (CRM, People, Recruit)</li>
+                        <li><i class="fas fa-check-circle"></i> Zoho Payroll & Social</li>
+                        <li><i class="fas fa-check-circle"></i> ATS System Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box">
+                    <div class="sb-header">
+                        <div class="sb-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Data Analytics & Tools</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Power BI (HR Dashboards)</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Excel (Pivot, VLOOKUP, MIS)</li>
+                        <li><i class="fas fa-check-circle"></i> HR Data Analytics</li>
+                        <li><i class="fas fa-check-circle"></i> MS Office (Word, PowerPoint)</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
         <section id="projects">
-            <h2 class="section-title">Academic Highlights</h2>
-            <div class="card">
-                <div style="display: flex; align-items: start; gap: 1.5rem; flex-wrap: wrap;">
-                    <div style="background: var(--accent-glow); padding: 1rem; border-radius: 10px; color: var(--accent); font-size: 1.5rem;">
-                        <i class="fas fa-chart-line"></i>
+            <div class="section-header">
+                <span>Case Studies</span>
+                <h2>Key Projects</h2>
+                <p>Academic research and organizational initiatives</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="p-content">
+                        <span class="p-tag">Organizational Behavior</span>
+                        <h3 class="p-title">Impact of Amalgamation on Employee Morale</h3>
+                        <span class="p-company">Hinduja Group | Feb 2022 - Jul 2022</span>
+                        <p class="p-desc">
+                            Conducted an in-depth study identifying correlations between high morale and enhanced job performance. The research highlighted how amalgamation affects workforce sentiment and proposed strategies to lower absenteeism costs during M&A.
+                        </p>
+                        <div class="p-footer">
+                            <i class="fas fa-check-circle"></i> Completed Research Study
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="exp-title">Study on Employee Morale Post-Amalgamation</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Ashok Leyland | May 2022 – Jun 2022</p>
-                        <p>A comprehensive analysis of workforce morale before and after organizational amalgamation. The study concluded a strong positive correlation between high morale and improved organizational performance metrics.</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="p-content">
+                        <span class="p-tag">Diversity & Inclusion</span>
+                        <h3 class="p-title">Gender Equality Initiatives in Workplace</h3>
+                        <span class="p-company">Accenture Chennai | Sep 2021 - Dec 2021</span>
+                        <p class="p-desc">
+                            Facilitated impactful discussions and implemented initiatives to foster mutual understanding between diverse groups. The project focused on creating inclusive workplace practices to enhance company culture and employee engagement.
+                        </p>
+                        <div class="p-footer">
+                            <i class="fas fa-check-circle"></i> Implemented Strategy
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="grid-2">
-                <div class="card" style="border-left: 5px solid var(--accent);">
-                    <h3>MBA (HR & Finance)</h3>
-                    <p class="exp-company">Anna University of Technology</p>
-                    <p style="color: var(--text-muted);">2020 – 2022</p>
+            <div class="section-header">
+                <span>Academic Credentials</span>
+                <h2>Education</h2>
+                <p>Building a strong foundation in Management & Commerce</p>
+            </div>
+            
+            <div class="edu-grid">
+                
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="edu-degree">MBA (Finance)</h3>
+                    <span class="edu-uni">Anna University of Technology</span>
+                    <span class="edu-year">2020 - 2022</span>
+                    
+                    <div style="margin-top: 1.5rem; text-align: left; border-top: 1px dashed #e2e8f0; padding-top: 1rem;">
+                        <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                            <i class="fas fa-star" style="color: var(--accent-yellow); margin-right: 8px;"></i>
+                            <strong>Focus:</strong> Financial Management, Business Strategy, and Organizational Behavior.
+                        </p>
+                        <p style="font-size: 0.95rem; color: var(--text-light);">
+                            Equipped with the analytical skills to manage <strong>Payroll Structuring</strong> and <strong>Compensation Benefits</strong> effectively.
+                        </p>
+                    </div>
                 </div>
-                <div class="card" style="border-left: 5px solid var(--primary);">
-                    <h3>BCom (Accounting)</h3>
-                    <p class="exp-company">Ramakrishana Mission College</p>
-                    <p style="color: var(--text-muted);">2016 – 2019</p>
+
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-university"></i></div>
+                    <h3 class="edu-degree">BCom (Accounting)</h3>
+                    <span class="edu-uni">Ramakrishna Mission College</span>
+                    <span class="edu-year">2016 - 2019</span>
+                    
+                    <div style="margin-top: 1.5rem; text-align: left; border-top: 1px dashed #e2e8f0; padding-top: 1rem;">
+                        <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                            <i class="fas fa-book" style="color: var(--highlight); margin-right: 8px;"></i>
+                            <strong>Focus:</strong> Accounting Principles, Taxation, and Corporate Law.
+                        </p>
+                        <p style="font-size: 0.95rem; color: var(--text-light);">
+                            Provided a strong base for handling <strong>Statutory Compliance (PF/ESI)</strong> and financial documentation.
+                        </p>
+                    </div>
                 </div>
+
             </div>
         </section>
 
         <section id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 style="color: white; margin-bottom: 2rem;">Let's Connect</h3>
-                    
+            <div class="section-header"><h2>Let's Work Together</h2></div>
+            <div class="contact-box">
+                <div class="contact-left">
+                    <h3 style="color:white; margin-bottom:2rem;">Contact Info</h3>
                     <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
-                        <div class="contact-text">
-                            <h6>Phone</h6>
-                            <a href="tel:+918072457261">+91-8072457261</a>
-                        </div>
+                        <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><span>Chennai, India</span></div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text">
-                            <h6>Email</h6>
-                            <a href="mailto:pk140899@yahoo.com">pk140899@yahoo.com</a>
-                        </div>
+                        <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                        <div><span>pk140899@yahoo.com</span></div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fab fa-linkedin-in"></i></div>
-                        <div class="contact-text">
-                            <h6>LinkedIn</h6>
-                            <a href="https://linkedin.com/in/praveen140899" target="_blank">View Profile</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text">
-                            <h6>Location</h6>
-                            <p>Chennai, India</p>
-                        </div>
+                        <div class="c-icon"><i class="fab fa-linkedin"></i></div>
+                        <div><span><a href="https://linkedin.com/in/praveen140899" target="_blank" style="color:white;">LinkedIn Profile</a></span></div>
                     </div>
                 </div>
-
-                <div class="contact-form-wrapper">
-                    <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+                <div class="contact-right">
                     <form action="https://formspree.io/f/movgnqra" method="POST">
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                            <label>Your Name</label>
+                            <input type="text" name="name" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="john@example.com" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
+                            <label>Message</label>
+                            <textarea name="message" rows="4" placeholder="Tell me about your requirement..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -795,57 +642,18 @@
     </main>
 
     <script>
-        // Mobile Menu Toggle Logic
+        // Mobile Menu Logic
         function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const icon = document.querySelector('.menu-btn i');
-            
-            sidebar.classList.toggle('active');
-            
-            if(sidebar.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
         }
-
-        // Close Sidebar when clicking a link (Mobile only)
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
+        
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 1024) {
-                    toggleMenu(); // Closes the menu
-                }
-            });
-        });
-
-        // Active Link Highlighting
-        const sections = document.querySelectorAll("section");
-        const navLi = document.querySelectorAll("nav ul li a");
-
-        window.addEventListener('scroll', () => {
-            let current = "";
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= (sectionTop - 300)) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            navLi.forEach((li) => {
-                li.classList.remove("active");
-                if (li.getAttribute("href").includes(current)) {
-                    li.classList.add("active");
-                }
+                document.getElementById('navLinks').classList.remove('active');
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
