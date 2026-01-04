@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praveen Kumar N | HR Generalist </title>
+    <title>Praveen Kumar N | HR Generalist & Analyst</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,11 +92,11 @@
         section { margin-bottom: 8rem; scroll-margin-top: 120px; }
         
         .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 0.8rem; }
-        .section-header p { color: var(--text-light); font-size: 1.1rem; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 0.8rem; font-weight: 700; }
+        .section-header p { color: var(--text-light); font-size: 1.15rem; }
         .section-header span { 
             color: var(--highlight); font-weight: 700; 
-            text-transform: uppercase; letter-spacing: 1.2px; font-size: 0.85rem; 
+            text-transform: uppercase; letter-spacing: 1.2px; font-size: 0.9rem; 
             display: block; margin-bottom: 0.5rem;
         }
 
@@ -113,13 +113,13 @@
             display: inline-block; margin-bottom: 1.5rem;
         }
 
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.15; margin-bottom: 1.5rem; }
+        .hero-text h1 { font-size: 3.8rem; line-height: 1.15; margin-bottom: 1.5rem; font-weight: 800; }
         .hero-text h1 span { 
             background: linear-gradient(90deg, var(--primary) 0%, var(--highlight) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         
-        .hero-text p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 2.5rem; max-width: 90%; }
+        .hero-text p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 2.5rem; max-width: 90%; line-height: 1.7; }
         
         .hero-img-container { position: relative; display: flex; justify-content: center; }
         .hero-img {
@@ -141,7 +141,7 @@
         .milestones-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 1.5rem; margin-bottom: 6rem; 
+            gap: 1.5rem; margin-bottom: 8rem; 
         }
         .milestone-card { 
             padding: 2.5rem 1.5rem; border-radius: 16px; color: white; 
@@ -157,6 +157,43 @@
         .bg-red { background: linear-gradient(135deg, #f97316, #ea580c); }
         .bg-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
         .bg-green { background: linear-gradient(135deg, #10b981, #059669); }
+
+        /* --- ABOUT & STRENGTHS SECTION --- */
+        .about-section {
+            display: grid; grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem; margin-bottom: 8rem; align-items: flex-start;
+        }
+        
+        .about-left h4 {
+            color: var(--highlight); font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+            font-size: 0.9rem; margin-bottom: 1rem; font-family: 'Outfit', sans-serif;
+        }
+        
+        .about-left h2 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--primary); font-weight: 700; }
+        .about-left p { color: var(--text-light); margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.7; }
+        .about-deco { height: 4px; width: 60px; background: var(--highlight); border-radius: 2px; margin-top: 1.5rem; }
+
+        .strengths-card {
+            background: white; padding: 3rem; border-radius: 20px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); border: 1px solid var(--border);
+        }
+        .strengths-card h3 { font-size: 1.8rem; margin-bottom: 2rem; color: var(--primary); font-weight: 700; }
+        
+        .s-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+        .s-item:last-child { margin-bottom: 0; }
+        
+        .s-icon {
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; flex-shrink: 0;
+        }
+        .si-green { background: #dcfce7; color: #16a34a; }
+        .si-blue { background: #dbeafe; color: #2563eb; }
+        .si-purple { background: #f3e8ff; color: #9333ea; }
+        .si-yellow { background: #fef9c3; color: #ca8a04; }
+        
+        .s-text h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: var(--text-main); font-weight: 700; }
+        .s-text p { font-size: 0.95rem; color: var(--text-light); line-height: 1.5; }
 
         /* --- EXPERIENCE TIMELINE (Enhanced) --- */
         .journey-grid { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
@@ -204,7 +241,7 @@
         }
         .check-list strong { color: var(--primary); font-weight: 600; }
 
-        /* --- SKILLS (Checkmark Cards - No Years) --- */
+        /* --- SKILLS (Checkmark Cards) --- */
         .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         
         .skill-box { 
@@ -250,7 +287,7 @@
             display: flex; align-items: center; gap: 10px; color: var(--primary); font-weight: 600;
         }
 
-        /* --- EDUCATION (ENHANCED) --- */
+        /* --- EDUCATION --- */
         .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .edu-card {
             background: white; padding: 2.5rem; border-radius: 16px;
@@ -312,6 +349,8 @@
             .hero-text h1 { font-size: 2.8rem; }
             .btn-group { justify-content: center; }
             
+            .about-section { grid-template-columns: 1fr; gap: 3rem; }
+            
             .contact-box { grid-template-columns: 1fr; }
             .contact-left, .contact-right { padding: 2.5rem; }
         }
@@ -343,7 +382,7 @@
                 <span class="badge">HR Generalist</span>
                 <h1>Bridging Operations & <br><span>Strategic Analytics</span></h1>
                 
-                <p>Result-driven HR Professional with <strong>nearly 3 years</strong> of experience in Recruitment, Payroll, and Statutory Compliance. <strong>Proficient</strong> in using Power BI, Zoho People, and Excel to transform HR data into actionable business decisions.</p>
+                <p>Result-driven HR Professional with <strong>3.2 years</strong> of experience in Recruitment, Payroll, and Statutory Compliance. <strong>Proficient</strong> in using Power BI, Zoho People, and Excel to transform HR data into actionable business decisions.</p>
                 
                 <div class="btn-group">
                     <a href="#projects" class="btn btn-primary">View Portfolio <i class="fas fa-arrow-down"></i></a>
@@ -358,7 +397,7 @@
 
         <div class="milestones-grid">
             <div class="milestone-card bg-orange">
-                <span class="m-number">3+</span>
+                <span class="m-number">3.2+</span>
                 <span class="m-label">Years Experience</span>
             </div>
 
@@ -377,6 +416,52 @@
                 <span class="m-label">Statutory Compliance</span>
             </div>
         </div>
+
+        <section class="about-section">
+            <div class="about-left">
+                <h4>About Me</h4>
+                <h2>Passionate <span style="color:var(--highlight)">HR Generalist</span> & <span style="color:var(--accent-purple)">Analyst</span></h2>
+                <p>I am a dedicated HR Generalist with 3.2 years of experience managing the full employee lifecycle. My expertise lies in talent acquisition, statutory compliance, and payroll processing, ensuring seamless operations for organizations.</p>
+                <p>Beyond core HR, I possess strong capabilities in <strong>Data Analytics</strong>, leveraging Power BI and Advanced Excel to transform workforce data into actionable insights. I am committed to aligning HR strategies with business goals to drive organizational success.</p>
+                <div class="about-deco"></div>
+            </div>
+
+            <div class="strengths-card">
+                <h3>Professional Strengths</h3>
+                
+                <div class="s-item">
+                    <div class="s-icon si-green"><i class="fas fa-check"></i></div>
+                    <div class="s-text">
+                        <h4>Analytical Approach</h4>
+                        <p>Strong capability in transforming HR data into actionable insights using Power BI.</p>
+                    </div>
+                </div>
+
+                <div class="s-item">
+                    <div class="s-icon si-blue"><i class="fas fa-users"></i></div>
+                    <div class="s-text">
+                        <h4>Collaboration</h4>
+                        <p>Effective communication with stakeholders to resolve grievances & build culture.</p>
+                    </div>
+                </div>
+
+                <div class="s-item">
+                    <div class="s-icon si-purple"><i class="fas fa-clock"></i></div>
+                    <div class="s-text">
+                        <h4>Time Management</h4>
+                        <p>Ability to prioritize tasks like payroll processing and recruitment deadlines efficiently.</p>
+                    </div>
+                </div>
+
+                <div class="s-item">
+                    <div class="s-icon si-yellow"><i class="fas fa-bolt"></i></div>
+                    <div class="s-text">
+                        <h4>Proactive Mindset</h4>
+                        <p>Continuous focus on learning new tools (Zoho/Odoo) and improving processes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="experience">
             <div class="section-header">
@@ -669,7 +754,7 @@
                     </div>
                 </div>
                 <div class="contact-right">
-                    <form action="https://formspree.io/f/xzznabyl" method="POST">
+                    <form action="https://formspree.io/f/xqeagbyn" method="POST">
                         <div class="form-group">
                             <label>Your Name</label>
                             <input type="text" name="name" placeholder="John Doe" required>
@@ -706,7 +791,3 @@
     </script>
 </body>
 </html>
-
-
-
-
